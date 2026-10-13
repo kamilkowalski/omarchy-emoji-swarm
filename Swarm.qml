@@ -198,7 +198,7 @@ Item {
     anchors { top: true; bottom: true; left: true; right: true }
     color: "transparent"
     exclusionMode: ExclusionMode.Ignore
-    WlrLayershell.namespace: "omarchy-swarm"
+    WlrLayershell.namespace: "omarchy-emoji-swarm"
     WlrLayershell.layer: WlrLayer.Top
     WlrLayershell.keyboardFocus: root.opened ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
     // click-through everywhere except the HUD pill (closed) / whole panel (open)

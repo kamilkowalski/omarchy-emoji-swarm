@@ -1,4 +1,4 @@
-# omarchy-swarm
+# omarchy-emoji-swarm
 
 Spot nearby Omarchy laptops and hurl emojis at them. Emojis float up the
 screen of every machine in the swarm, sender name attached.
@@ -9,13 +9,13 @@ datagrams. No pairing, no server, same subnet only.
 ## Install (Omarchy)
 
 ```sh
-omarchy plugin add https://github.com/<you>/omarchy-swarm.git --enable
+omarchy plugin add https://github.com/<you>/omarchy-emoji-swarm.git --enable
 ```
 
 Then add a keybinding in `~/.config/hypr/bindings.lua`:
 
 ```lua
-o.bind("SUPER + ALT + E", "Emoji swarm", "omarchy-shell shell toggle kamil.swarm")
+o.bind("SUPER + ALT + E", "Emoji swarm", "omarchy-shell shell toggle kamil.emoji-swarm")
 ```
 
 And allow the port through the firewall:
@@ -59,6 +59,6 @@ its beacons make it show up as a peer.
 ## Uninstall
 
 ```sh
-omarchy plugin disable kamil.swarm
-omarchy plugin remove kamil.swarm
+omarchy plugin disable kamil.emoji-swarm
+omarchy plugin remove kamil.emoji-swarm
 ```

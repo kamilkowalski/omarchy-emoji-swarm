@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "id": "kamil.swarm",
-  "name": "Swarm",
+  "id": "kamil.emoji-swarm",
+  "name": "Emoji Swarm",
   "version": "1.0.0",
   "author": "kamil",
   "description": "Spot nearby Omarchy laptops and hurl emojis at them",
