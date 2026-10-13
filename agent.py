@@ -37,6 +37,16 @@ def broadcast_addrs():
                 addrs.add(parts[parts.index("brd") + 1])
     except OSError:
         pass
+    # macOS / BSD: ifconfig prints "... inet 192.168.0.5 netmask 0xffffff00 broadcast 192.168.0.255"
+    try:
+        out = os.popen("ifconfig 2>/dev/null").read()
+        for line in out.splitlines():
+            parts = line.split()
+            if "inet" in parts and "broadcast" in parts:
+                addrs.add(parts[parts.index("broadcast") + 1])
+    except OSError:
+        pass
+    addrs.discard("")
     return sorted(addrs)
 
 
