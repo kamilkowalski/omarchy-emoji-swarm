@@ -51,6 +51,7 @@ Item {
       root.peers[id] = { id: id, name: String(msg.name || "?"), ip: String(msg.ip || ""), seen: Date.now() }
       if (prev.name !== root.peers[id].name || prev.ip !== root.peers[id].ip) root.rebuildPeers()
     } else if (msg.event === "emoji") {
+      if (msg.id && String(msg.id) === root.myId) return // own loopback; local echo covers it
       root.spawnFloat(String(msg.emoji || "🎉"), String(msg.from || "?"), false)
     }
   }

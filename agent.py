@@ -98,13 +98,14 @@ def serve():
                   "name": msg.get("name", "?"), "ip": sender[0]})
         elif msg.get("type") == "emoji":
             emit({"event": "emoji", "emoji": str(msg.get("emoji", ""))[:16],
-                  "from": str(msg.get("from", "?"))[:32]})
+                  "from": str(msg.get("from", "?"))[:32], "id": str(msg.get("id", ""))[:16]})
 
 
 def send(ip, emoji, from_):
+    mid, _ = identity()
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-    payload = json.dumps({"type": "emoji", "emoji": emoji, "from": from_}).encode()
+    payload = json.dumps({"type": "emoji", "emoji": emoji, "from": from_, "id": mid}).encode()
     sock.sendto(payload, (ip, PORT))
     sock.close()
 
